@@ -1,0 +1,174 @@
+object DataModule5: TDataModule5
+  OldCreateOrder = False
+  Left = 431
+  Top = 186
+  Height = 321
+  Width = 353
+  object IBQueryTEST: TIBQuery
+    Database = IBDatabase
+    Transaction = IBTransaction2
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSource = DataSourceTEST
+    Left = 240
+    Top = 32
+  end
+  object IBQueryQUESTION: TIBQuery
+    Database = IBDatabase
+    Transaction = IBTransaction2
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSource = DataSourceQUESTIONS
+    Left = 240
+    Top = 88
+  end
+  object IBDatabase: TIBDatabase
+    Connected = True
+    DatabaseName = 'localhost:D:\TEST_BASE.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey'
+      'lc_ctype=WIN1251')
+    LoginPrompt = False
+    DefaultTransaction = IBTransaction1
+    IdleTimer = 0
+    SQLDialect = 3
+    TraceFlags = []
+    Left = 232
+    Top = 144
+  end
+  object IBTransaction1: TIBTransaction
+    Active = True
+    DefaultDatabase = IBDatabase
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    AutoStopAction = saCommitRetaining
+    Left = 56
+    Top = 208
+  end
+  object IBTransaction2: TIBTransaction
+    Active = True
+    DefaultDatabase = IBDatabase
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    AutoStopAction = saNone
+    Left = 152
+    Top = 208
+  end
+  object DataSourceTEST: TDataSource
+    DataSet = IBDataSetTEST
+    Left = 56
+    Top = 8
+  end
+  object DataSourceQUESTIONS: TDataSource
+    DataSet = IBDataSetQUESTION
+    Left = 56
+    Top = 56
+  end
+  object IBDataSetTEST: TIBDataSet
+    Database = IBDatabase
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    RefreshSQL.Strings = (
+      
+        'SELECT ID_TEST, TEST_DESCRIPTION, MARK_A, MARK_B, MARK_C, MARK_D' +
+        ', VISIBILITY, RANDOM_MODE, ACTIVE_QUESTIONS, ADAPTIVE, TIME_LIMI' +
+        'T FROM TEST order by VISIBILITY DESC, TEST_DESCRIPTION')
+    SelectSQL.Strings = (
+      
+        'SELECT ID_TEST, TEST_DESCRIPTION, MARK_A, MARK_B, MARK_C, MARK_D' +
+        ', VISIBILITY, RANDOM_MODE, ACTIVE_QUESTIONS, ADAPTIVE, TIME_LIMI' +
+        'T FROM TEST order by VISIBILITY DESC, TEST_DESCRIPTION')
+    Active = True
+    Left = 56
+    Top = 104
+  end
+  object IBDataSetQUESTION: TIBDataSet
+    Database = IBDatabase
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    RefreshSQL.Strings = (
+      
+        'SELECT * FROM QUESTION WHERE test_id_test = :id_test ORDER BY RA' +
+        'NDOMIZING DESC, SCORE DESC')
+    SelectSQL.Strings = (
+      
+        'SELECT * FROM QUESTION WHERE test_id_test = :id_test ORDER BY RA' +
+        'NDOMIZING DESC, SCORE DESC')
+    Active = True
+    DataSource = DataSourceTEST
+    Left = 56
+    Top = 152
+  end
+  object IBQueryRESULTS: TIBQuery
+    Database = IBDatabase
+    Transaction = IBTransaction2
+    BufferChunks = 1000
+    CachedUpdates = False
+    Left = 152
+    Top = 8
+  end
+  object DataSourceRESULTS: TDataSource
+    DataSet = IBDataSetRESULTS
+    Left = 152
+    Top = 144
+  end
+  object IBDataSetRESULTS: TIBDataSet
+    Database = IBDatabase
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    RefreshSQL.Strings = (
+      'select '
+      'TESTING.ID_TESTING,'
+      'TESTING.START_TIME,'
+      'TESTING.END_TIME,'
+      'RESPONDENT.SURNAME,'
+      'RESPONDENT.NAME, '
+      'RESPONDENT.PATRONIMIC,'
+      'TEST.TEST_DESCRIPTION,'
+      'TESTING.RESULT,'
+      'TESTING.MARK,'
+      'TESTING.TESTING_REPORT,'
+      'GROUPS.GROUP_DESCRIPTION'
+      'from'
+      
+        'TESTING join RESPONDENT on TESTING.RESPONDENT_ID_RESPONDENT = RE' +
+        'SPONDENT.ID_RESPONDENT '
+      'join TEST on TESTING.TEST_ID_TEST = TEST.ID_TEST'
+      'join GROUPS on RESPONDENT.GROUP_ID_GROUP = GROUPS.ID_GROUP')
+    SelectSQL.Strings = (
+      'select '
+      'TESTING.ID_TESTING,'
+      'TESTING.START_TIME,'
+      'TESTING.END_TIME,'
+      'RESPONDENT.SURNAME,'
+      'RESPONDENT.NAME, '
+      'RESPONDENT.PATRONIMIC,'
+      'TEST.TEST_DESCRIPTION,'
+      'TESTING.RESULT,'
+      'TESTING.MARK,'
+      'TESTING.TESTING_REPORT,'
+      'GROUPS.GROUP_DESCRIPTION'
+      'from'
+      
+        'TESTING join RESPONDENT on TESTING.RESPONDENT_ID_RESPONDENT = RE' +
+        'SPONDENT.ID_RESPONDENT '
+      'join TEST on TESTING.TEST_ID_TEST = TEST.ID_TEST'
+      'join GROUPS on RESPONDENT.GROUP_ID_GROUP = GROUPS.ID_GROUP')
+    Active = True
+    Left = 144
+    Top = 96
+  end
+  object DataSourceREPORT: TDataSource
+    DataSet = IBQueryRESULTS
+    Left = 232
+    Top = 208
+  end
+end

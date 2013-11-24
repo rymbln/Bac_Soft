@@ -1,0 +1,152 @@
+object FormAUTORIZATION: TFormAUTORIZATION
+  Left = 163
+  Top = 144
+  Width = 384
+  Height = 240
+  Caption = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+  Color = clBtnFace
+  Constraints.MaxHeight = 240
+  Constraints.MaxWidth = 400
+  Constraints.MinHeight = 240
+  Constraints.MinWidth = 200
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 184
+    Height = 202
+    Align = alCustom
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 8
+      Top = 12
+      Width = 140
+      Height = 13
+      Caption = #1055#1086#1078#1072#1083#1091#1081#1089#1090#1072' '#1072#1074#1090#1086#1088#1080#1079#1091#1081#1090#1077#1089#1100
+    end
+    object LabeledEdit1: TLabeledEdit
+      Left = 8
+      Top = 48
+      Width = 169
+      Height = 21
+      EditLabel.Width = 31
+      EditLabel.Height = 13
+      EditLabel.Caption = #1051#1086#1075#1080#1085
+      TabOrder = 0
+      Text = '19'
+    end
+    object LabeledEdit2: TLabeledEdit
+      Left = 8
+      Top = 88
+      Width = 169
+      Height = 21
+      EditLabel.Width = 38
+      EditLabel.Height = 13
+      EditLabel.Caption = #1055#1072#1088#1086#1083#1100
+      TabOrder = 1
+      Text = 'asuseee'
+    end
+    object BitBtn1: TBitBtn
+      Left = 8
+      Top = 120
+      Width = 169
+      Height = 33
+      TabOrder = 2
+      OnClick = BitBtn1Click
+      Kind = bkOK
+    end
+    object BitBtn4: TBitBtn
+      Left = 8
+      Top = 160
+      Width = 169
+      Height = 33
+      Caption = #1054#1090#1084#1077#1085#1072
+      TabOrder = 3
+      OnClick = BitBtn4Click
+      Kind = bkCancel
+    end
+  end
+  object Panel2: TPanel
+    Left = 184
+    Top = 0
+    Width = 184
+    Height = 202
+    Align = alCustom
+    TabOrder = 1
+    Visible = False
+    object Label2: TLabel
+      Left = 8
+      Top = 48
+      Width = 169
+      Height = 13
+      Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1090#1077#1089#1090' '#1076#1083#1103' '#1087#1088#1086#1093#1086#1078#1076#1077#1085#1080#1103':'
+    end
+    object Label3: TLabel
+      Left = 8
+      Top = 8
+      Width = 32
+      Height = 13
+      Caption = 'Label3'
+    end
+    object Label4: TLabel
+      Left = 8
+      Top = 24
+      Width = 32
+      Height = 13
+      Caption = 'Label4'
+    end
+    object BitBtn2: TBitBtn
+      Left = 8
+      Top = 120
+      Width = 169
+      Height = 33
+      TabOrder = 0
+      OnClick = BitBtn2Click
+      Kind = bkOK
+    end
+    object BitBtn3: TBitBtn
+      Left = 8
+      Top = 160
+      Width = 169
+      Height = 33
+      Caption = #1054#1090#1084#1077#1085#1072
+      TabOrder = 1
+      OnClick = BitBtn3Click
+      Kind = bkCancel
+    end
+    object RadioButton1: TRadioButton
+      Left = 8
+      Top = 88
+      Width = 73
+      Height = 17
+      Caption = #1054#1073#1091#1095#1077#1085#1080#1077
+      TabOrder = 2
+    end
+    object RadioButton2: TRadioButton
+      Left = 96
+      Top = 88
+      Width = 73
+      Height = 17
+      Caption = #1050#1086#1085#1090#1088#1086#1083#1100
+      TabOrder = 3
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 8
+      Top = 64
+      Width = 169
+      Height = 21
+      KeyField = 'ID_TEST'
+      ListField = 'TEST_DESCRIPTION'
+      ListSource = DataModule4.DataSourceTEST
+      TabOrder = 4
+    end
+  end
+end
